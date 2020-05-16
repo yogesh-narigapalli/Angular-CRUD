@@ -1,0 +1,37 @@
+
+
+<div class="container">
+  <div>
+    <button [disabled]="formOpen" class="btn btn-sm btn-dark form-control mt-3" (click)="formOpen=!formOpen" >Add Entry</button>
+    <form *ngIf="formOpen">
+      <div class="form-group mt-3">
+        <label>*Name</label>
+        <input class="form-control" type="text" name="name" [(ngModel)]="person.name" placeholder="Enter your name" required>
+
+      </div>
+      <div class="form-group mt-3">
+        <label>*Contact</label>
+        <input class="form-control" type="number" name="contact" [(ngModel)]="person.contact" placeholder="Enter your contact number" required>
+
+      </div>
+      <button [disabled]="!enableAdd" class="btn btn-primary mt-3 mb-3 butt" 
+      (click)="buttonClicked({name: person.name, contact: person.contact, hide:true})">Add new entry</button>
+
+    </form>
+  </div>
+  
+  
+  <div *ngFor="let data of user" class="container">
+  
+    
+      <div class=" card card-body mb-2 mt-2" *ngIf="(person.name || data.name) && (person.contact|| data.contact)">
+        <ul class="list-group" >
+          <li class="list-group-item" [ngStyle]="currentStyle">{{data.name}} <small><button class="btn btn-sm btn-dark" (click)="kick(data)">{{buttonSymbol}}</button></small></li>
+          <li *ngIf="!data.hide" class="list-group-item">{{data.contact}}</li>
+        </ul>
+    
+
+    </div>
+  </div>
+</div>
+

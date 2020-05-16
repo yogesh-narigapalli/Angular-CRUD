@@ -1,0 +1,17 @@
+
+<div class="container">
+  <h3>Add Post</h3>
+  <form>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" #title>
+      <label>Body</label>
+      <input type="text" name="body" class="form-control" #body>
+      <button class="btn btn-primary btn-block mt-2" (click)="addPost(title.value, body.value)">Add Post</button>
+
+    </div>
+   
+
+  </form>
+  
+</div>
