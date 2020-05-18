@@ -4,10 +4,11 @@
   <form>
     <div class="form-group">
       <label>Title</label>
-      <input type="text" name="title" class="form-control" #title>
+      <input type="text" name="title" class="form-control" [(ngModel)]="currentPost.title" #title>
       <label>Body</label>
-      <input type="text" name="body" class="form-control" #body>
-      <button class="btn btn-primary btn-block mt-2" (click)="addPost(title.value, body.value)">Add Post</button>
+      <input type="text" name="body" class="form-control" [(ngModel)]="currentPost.body" #body>
+      <button *ngIf="!isEdit" class="btn btn-primary btn-block mt-2" (click)="addPost(title.value, body.value)">Add Post</button>
+      <button *ngIf="isEdit"class="btn btn-primary btn-block mt-2" (click)="updatePost()">Update Post</button>
 
     </div>
    

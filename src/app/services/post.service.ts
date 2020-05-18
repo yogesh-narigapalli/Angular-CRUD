@@ -23,4 +23,14 @@ export class PostService {
     return this.http.post<Post>(this.postUrl,post,httpOptions);
 
   }
+  updatePost(post:Post):Observable<Post>{
+  const url = `${this.postUrl}/${post.id}`;
+  return this.http.put<Post>(url,post,httpOptions);
+}
+onDelete(post:number) : Observable<Post>{
+  const id=post;
+  const url = `${this.postUrl}/${id}`;
+  return this.http.delete<Post>(url,httpOptions);
+
+}
 }
